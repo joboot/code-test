@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/landing-page";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { Container } from "@mui/material";
 import { Organization, WithContext } from "schema-dts";
 
 const jsonLd: WithContext<Organization> = {
@@ -19,10 +19,18 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      <Navbar />
-      <LandingPage />
-      <Footer />
+      <Container
+        sx={{
+          border: 0.5,
+          borderColor: "#def8f8",
+          boxShadow: 10,
+          backgroundColor: "#FAF9F6",
+        }}
+      >
+        <Navbar />
+        <LandingPage />
+        <Footer />
+      </Container>
     </>
   );
 }
